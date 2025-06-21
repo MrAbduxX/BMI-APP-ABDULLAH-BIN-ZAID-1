@@ -1,0 +1,4224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صحتك أولاً - نظام الصحة المدرسية</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1864/1864593.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --secondary: #8BC34A;
+            --accent: #FFC107;
+            --dark: #2E7D32;
+            --light: #E8F5E9;
+            --text: #333;
+            --easy: #4CAF50;
+            --hard: #FF5722;
+            --diabetes: #9C27B0;
+            --asthma: #2196F3;
+            --allergy: #FF9800;
+            --water-blue: #2196F3;
+            --meal-green: #8BC34A;
+            --video-purple: #9C27B0;
+            --notification-yellow: #FFC107;
+            --sleep-indigo: #3F51B5;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%);
+            z-index: -1;
+        }
+        
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .animated-bg span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(76, 175, 80, 0.3);
+            animation: animate 15s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+        
+        .animated-bg span:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+            animation-duration: 12s;
+            background: rgba(139, 195, 74, 0.3);
+        }
+        
+        .animated-bg span:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+            background: rgba(76, 175, 80, 0.3);
+        }
+        
+        .animated-bg span:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+            animation-duration: 18s;
+            background: rgba(255, 193, 7, 0.3);
+        }
+        
+        .animated-bg span:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+            background: rgba(33, 150, 243, 0.3);
+        }
+        
+        .animated-bg span:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            animation-duration: 14s;
+            background: rgba(156, 39, 176, 0.3);
+        }
+        
+        .animated-bg span:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+            animation-duration: 16s;
+            background: rgba(255, 152, 0, 0.3);
+        }
+        
+        .animated-bg span:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+            animation-duration: 20s;
+            background: rgba(103, 58, 183, 0.3);
+        }
+        
+        .animated-bg span:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 30s;
+            background: rgba(33, 150, 243, 0.3);
+        }
+        
+        .animated-bg span:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 25s;
+            background: rgba(76, 175, 80, 0.3);
+        }
+        
+        .animated-bg span:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 15s;
+            background: rgba(139, 195, 74, 0.3);
+        }
+        
+        @keyframes animate {
+            0%, 60%, 100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            30% { transform: translateY(-10px) rotate(5deg); opacity: 0.8; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .app-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .app-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .app-title {
+            font-size: 24px;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .mascot {
+            width: 80px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.1); }
+        }
+        
+        .form-container {
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Tajawal';
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--dark);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Tajawal';
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--dark);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Tajawal';
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #2196F3 0%, #03A9F4 100%);
+            color: white;
+        }
+        
+        .btn-easy {
+            background-color: var(--easy);
+            color: white;
+        }
+        
+        .btn-hard {
+            background-color: var(--hard);
+            color: white;
+        }
+        
+        .btn-diabetes {
+            background-color: var(--diabetes);
+            color: white;
+        }
+        
+        .btn-asthma {
+            background-color: var(--asthma);
+            color: white;
+        }
+        
+        .btn-allergy {
+            background-color: var(--allergy);
+            color: white;
+        }
+        
+        .btn-water {
+            background-color: var(--water-blue);
+            color: white;
+        }
+        
+        .btn-video {
+            background-color: var(--video-purple);
+            color: white;
+        }
+        
+        .btn-warning {
+            background-color: var(--hard);
+            color: white;
+        }
+        
+        .btn-sleep {
+            background-color: var(--sleep-indigo);
+            color: white;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .result-container {
+            padding: 20px;
+        }
+        
+        .bmi-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .bmi-category {
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .advice-container {
+            background-color: rgba(245, 245, 245, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: right;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .motivation {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .coin-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        
+        .coin-icon {
+            width: 35px;
+            margin-left: 5px;
+            color: gold;
+            font-size: 28px;
+        }
+        
+        .coin-count {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .progress-container {
+            margin: 25px 0;
+        }
+        
+        .progress-bar {
+            height: 25px;
+            background-color: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC600 100%);
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .character-large {
+            width: 120px;
+            margin: 20px auto;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .character-talk {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 100px;
+            z-index: 100;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+        }
+        
+        .speech-bubble {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 12px 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            width: 220px;
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 15px;
+            display: none;
+            font-weight: bold;
+        }
+        
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+        }
+        
+        .challenge-title {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            margin-right: 8px;
+        }
+        
+        .chart-container {
+            width: 100%;
+            height: 320px;
+            margin: 25px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px 10px 0 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-tab {
+            padding: 14px 22px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            white-space: nowrap;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .nav-tab:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .nav-tab.active {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .nav-tab.active:after {
+            transform: scaleX(1);
+        }
+        
+        .shop-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .shop-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .shop-item img {
+            width: 55px;
+            margin-left: 12px;
+        }
+        
+        .shop-item-info {
+            flex: 1;
+        }
+        
+        .shop-item-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+        
+        .shop-item-price {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .purchased {
+            opacity: 0.7;
+            position: relative;
+        }
+        
+        .purchased::after {
+            content: 'تم الشراء';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 4px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .medical-condition {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            margin-left: 8px;
+        }
+        
+        .exercise-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .exercise-difficulty {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .exercise-difficulty.easy {
+            background-color: var(--easy);
+        }
+        
+        .exercise-difficulty.medium {
+            background-color: #FFC107;
+        }
+        
+        .exercise-difficulty.hard {
+            background-color: var(--hard);
+        }
+        
+        /* AI Support Bot Styles */
+        .bot-container {
+            position: fixed;
+            bottom: 140px;
+            left: 25px;
+            width: 370px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            z-index: 1000;
+            display: none;
+            transform: scale(0.95);
+            animation: botAppear 0.4s forwards;
+        }
+        
+        @keyframes botAppear {
+            to { transform: scale(1); }
+        }
+        
+        .bot-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .bot-header img {
+            width: 45px;
+            margin-left: 12px;
+        }
+        
+        .bot-header h3 {
+            margin: 0;
+            flex: 1;
+            font-size: 20px;
+        }
+        
+        .bot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .bot-close:hover {
+            transform: scale(1.2);
+        }
+        
+        .bot-messages {
+            height: 320px;
+            overflow-y: auto;
+            padding: 18px;
+            background-color: #f9f9f9;
+        }
+        
+        .message {
+            margin-bottom: 18px;
+            max-width: 85%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            position: relative;
+            animation: messageAppear 0.3s;
+            font-size: 15px;
+        }
+        
+        @keyframes messageAppear {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bot-message {
+            background-color: #e5f5e8;
+            margin-right: auto;
+            border-bottom-right-radius: 0;
+        }
+        
+        .user-message {
+            background-color: #e3f2fd;
+            margin-left: auto;
+            border-bottom-left-radius: 0;
+        }
+        
+        .bot-input {
+            display: flex;
+            padding: 12px;
+            background-color: white;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .bot-input input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-family: 'Tajawal';
+            outline: none;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        
+        .bot-input input:focus {
+            border-color: var(--primary);
+        }
+        
+        .bot-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .bot-input button:hover {
+            transform: scale(1.1);
+        }
+        
+        .typing-indicator {
+            display: flex;
+            padding: 12px;
+        }
+        
+        .typing-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #999;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typingAnimation {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-7px); }
+        }
+        
+        /* New Styles for Added Features */
+        .notification-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: var(--notification-yellow);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .water-tracker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .water-cups {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .water-cup {
+            width: 50px;
+            height: 70px;
+            background-color: #e3f2fd;
+            border: 2px solid var(--water-blue);
+            border-radius: 0 0 15px 15px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .water-cup:hover {
+            transform: translateY(-5px);
+        }
+        
+        .water-cup.filled .water-fill {
+            height: 100%;
+        }
+        
+        .water-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: var(--water-blue);
+            transition: height 0.5s ease;
+        }
+        
+        .meal-plan {
+            margin: 20px 0;
+        }
+        
+        .meal-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--meal-green);
+        }
+        
+        .meal-time {
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .video-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--video-purple);
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            height: 180px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--video-purple);
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .video-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 18px;
+            color: var(--video-purple);
+        }
+        
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-question {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .quiz-option {
+            background-color: #f5f5f5;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .quiz-option:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .quiz-option.selected {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .settings-section {
+            margin-bottom: 25px;
+        }
+        
+        .settings-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+        }
+        
+        .language-selector {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .lang-option {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-option.active {
+            border-color: var(--primary);
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .guardian-section {
+            background-color: rgba(245, 245, 245, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+        
+        .alert-warning {
+            background-color: #fff8e1;
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .home-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .home-stat {
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        .home-stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .home-stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .home-bmi {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .home-bmi-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .home-bmi-label {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .achievement-info {
+            flex: 1;
+        }
+        
+        .achievement-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .achievement-date {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .comparison-chart {
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+            gap: 10px;
+        }
+        
+        .comparison-bar {
+            flex: 1;
+            background-color: var(--primary);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            min-height: 10px;
+        }
+        
+        .comparison-label {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .comparison-value {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .bmi-alert {
+            background-color: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        /* New styles for added features */
+        .tracking-form {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .tracking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tracking-table th, .tracking-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .tracking-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .tracking-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .tracking-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .delete-btn:hover {
+            background-color: #d32f2f;
+            transform: scale(1.05);
+        }
+        
+        .logout-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .logout-btn:hover {
+            background-color: #d32f2f;
+            transform: translateY(-2px);
+        }
+        
+        .tracking-notification {
+            background-color: #fff8e1;
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .tracking-notification button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        /* New features */
+        .daily-tip {
+            background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #FF9800;
+        }
+        
+        .daily-tip h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .daily-tip p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .medal-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .medals-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .medal {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .medal.achieved {
+            background: radial-gradient(circle at 30% 30%, #FFD700, #FFC107);
+        }
+        
+        .medal i {
+            font-size: 36px;
+            color: #333;
+        }
+        
+        .medal.achieved i {
+            color: #fff;
+        }
+        
+        .medal-title {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .new-feature-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #f44336;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .featured-video {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 200px;
+            margin: 20px 0;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        .featured-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .featured-video-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .motivational-quote {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 18px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+        /* Kid-friendly video styles */
+        .kid-video {
+            border: 3px solid #FFC107;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .kid-video-header {
+            background: linear-gradient(135deg, #2196F3 0%, #03A9F4 100%);
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .kid-video-content {
+            background-color: #e3f2fd;
+            padding: 15px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        @media (min-width: 480px) {
+            .video-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .video-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .video-thumb {
+            width: 100%;
+            height: 120px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2196F3;
+            font-size: 50px;
+        }
+        
+        .video-info {
+            padding: 12px;
+        }
+        
+        .video-item-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2196F3;
+        }
+        
+        .age-badge {
+            display: inline-block;
+            background-color: #FFC107;
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        /* New Features */
+        .sleep-tracker {
+            background: linear-gradient(135deg, #3F51B5 0%, #5C6BC0 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .sleep-tracker h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .sleep-inputs {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .sleep-input {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .sleep-input label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .sleep-input input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .sleep-result {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+        
+        .recipe-section {
+            margin: 25px 0;
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        @media (min-width: 480px) {
+            .recipe-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .recipe-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .recipe-image {
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .recipe-info {
+            padding: 15px;
+        }
+        
+        .recipe-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .recipe-time {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .motivational-videos {
+            margin: 30px 0;
+        }
+        
+        .motivational-videos h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .video-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) #f0f0f0;
+        }
+        
+        .video-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .video-carousel::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+        
+        .video-carousel::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .motivational-video {
+            flex: 0 0 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .motivational-video iframe {
+            width: 100%;
+            height: 160px;
+            border: none;
+        }
+        
+        .motivational-video-title {
+            padding: 12px;
+            background: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .friend-leaderboard {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .friend-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .friend-item:last-child {
+            border-bottom: none;
+        }
+        
+        .friend-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 12px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .friend-info {
+            flex: 1;
+        }
+        
+        .friend-name {
+            font-weight: bold;
+        }
+        
+        .friend-points {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .friend-rank {
+            background-color: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .achievement-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+            color: #333;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.5s ease;
+        }
+        
+        .achievement-toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast-icon {
+            font-size: 24px;
+        }
+        
+        .toast-content h3 {
+            margin-bottom: 5px;
+        }
+        
+        /* Animation Enhancements */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        @keyframes slideInUp {
+            from { 
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .slide-in-up {
+            animation: slideInUp 0.6s ease forwards;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        /* New for BMI chart */
+        .bmi-chart {
+            width: 100%;
+            height: 250px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .chart-info {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* New styles for added features */
+        .meal-calories {
+            background-color: #FFD700;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .feedback-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .feedback-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            font-family: 'Tajawal';
+            font-size: 16px;
+            height: 150px;
+            margin-bottom: 15px;
+        }
+        
+        .wheel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+        }
+        
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #FFD700;
+            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        
+        .wheel-section {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform-origin: bottom right;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .wheel-pointer {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #f44336;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            z-index: 10;
+        }
+        
+        .spin-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            z-index: 5;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .wheel-cost {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .wheel-result {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            border: 2px solid var(--accent);
+        }
+        
+        .rarity-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .common { background-color: #4CAF50; color: white; }
+        .rare { background-color: #2196F3; color: white; }
+        .epic { background-color: #9C27B0; color: white; }
+        .legendary { background-color: #FF9800; color: white; }
+        .mythical { background-color: #f44336; color: white; }
+        
+        .weekly-challenge {
+            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            border: 3px solid #FFD700;
+        }
+        
+        .weekly-challenge h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+        
+        .challenge-reward {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .reward-item {
+            background-color: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 100px;
+        }
+        
+        .comic-strip {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) #f0f0f0;
+        }
+        
+        .comic-strip::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .comic-strip::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+        
+        .comic-strip::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .comic-panel {
+            flex: 0 0 280px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .comic-image {
+            height: 180px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2196F3;
+            font-size: 50px;
+        }
+        
+        .comic-caption {
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* New styles for dark theme */
+        body.dark-theme {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme::before {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(139, 195, 74, 0.05) 100%);
+        }
+        
+        body.dark-theme .app-card {
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        body.dark-theme .advice-container,
+        body.dark-theme .challenge-card,
+        body.dark-theme .shop-item,
+        body.dark-theme .exercise-card,
+        body.dark-theme .meal-card,
+        body.dark-theme .video-card,
+        body.dark-theme .quiz-card,
+        body.dark-theme .medal-section,
+        body.dark-theme .friend-leaderboard,
+        body.dark-theme .achievement-card,
+        body.dark-theme .home-stat,
+        body.dark-theme .home-bmi,
+        body.dark-theme .tracking-table,
+        body.dark-theme .comparison-table,
+        body.dark-theme .feedback-container,
+        body.dark-theme .comic-panel {
+            background: rgba(50, 50, 50, 0.8);
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme .form-input,
+        body.dark-theme .form-select {
+            background-color: rgba(40, 40, 40, 0.9);
+            color: #e0e0e0;
+            border-color: #4CAF50;
+        }
+        
+        body.dark-theme .form-input:focus,
+        body.dark-theme .form-select:focus {
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+        }
+        
+        body.dark-theme .bmi-value,
+        body.dark-theme .bmi-category,
+        body.dark-theme .coin-count,
+        body.dark-theme .home-bmi-value,
+        body.dark-theme .home-stat-value {
+            color: #8BC34A;
+        }
+        
+        body.dark-theme .motivation {
+            color: #8BC34A;
+        }
+        
+        body.dark-theme .alert-warning {
+            background-color: #332900;
+            border-left: 5px solid #FFC107;
+            color: #FFC107;
+        }
+        
+        body.dark-theme .bmi-alert {
+            background-color: #330000;
+            border-left: 5px solid #f44336;
+            color: #ff9999;
+        }
+        
+        /* إضافة أنماط جديدة لصفحة المخزن */
+        .inventory-container {
+            padding: 20px;
+        }
+        
+        .background-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .background-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            aspect-ratio: 1/1;
+        }
+        
+        .background-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        
+        .background-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .background-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .background-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .equip-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .equipped-badge {
+            background-color: #FFC107;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .rarity-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .common { background-color: #4CAF50; color: white; }
+        .rare { background-color: #2196F3; color: white; }
+        .epic { background-color: #9C27B0; color: white; }
+        .legendary { background-color: #FF9800; color: white; }
+        .mythical { background-color: #f44336; color: white; }
+        
+        .inventory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .empty-inventory {
+            text-align: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .empty-inventory i {
+            font-size: 48px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <!-- Achievement Toast -->
+    <div class="achievement-toast" id="achievementToast">
+        <div class="toast-icon">
+            <i class="fas fa-trophy"></i>
+        </div>
+        <div class="toast-content">
+            <h3>إنجاز جديد!</h3>
+            <p>لقد أكملت تحدياً جديداً</p>
+        </div>
+    </div>
+    
+    <!-- AI Support Bot -->
+    <div class="bot-container" id="botContainer">
+        <div class="bot-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="مساعد الصحة">
+            <h3>مساعد الصحة الذكية</h3>
+            <button class="bot-close" id="botClose">×</button>
+        </div>
+        <div class="bot-messages" id="botMessages">
+            <div class="message bot-message">
+                مرحباً! أنا مساعدك الصحي الذكي. كيف يمكنني مساعدتك اليوم؟
+            </div>
+            <div class="message bot-message">
+                يمكنك سؤالي عن:
+                <ul style="margin-top: 5px; padding-right: 15px;">
+                    <li>نصائح صحية</li>
+                    <li>تمارين رياضية</li>
+                    <li>نظام غذائي</li>
+                    <li>أي استفسار صحي آخر</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bot-input">
+            <input type="text" id="botInput" placeholder="اكتب رسالتك هنا...">
+            <button id="botSend">↩️</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Sign In Screen -->
+        <div class="app-card" id="signinScreen">
+            <div class="app-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/5996/5996830.png" alt="شخصية التطبيق" class="mascot">
+                <h1 class="app-title">مرحباً في <span>صحتك أولاً</span>!</h1>
+            </div>
+            
+            <div class="form-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/1864/1864593.png" alt="شخصية كرتونية" class="character-large">
+                <h2>سجل معلوماتك</h2>
+                <form id="signinForm">
+                    <div class="form-group">
+                        <label for="studentName" class="form-label">اسم الطالب:</label>
+                        <input type="text" id="studentName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="school" class="form-label">المدرسة:</label>
+                        <input type="text" id="school" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade" class="form-label">الصف:</label>
+                        <input type="text" id="grade" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">الجنس:</label>
+                        <div style="display: flex; gap: 15px;">
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="gender" value="male" required> ذكر
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="gender" value="female"> أنثى
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="height" class="form-label">الطول (سم):</label>
+                        <input type="number" id="height" class="form-input" required min="100" max="250">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weight" class="form-label">الوزن (كجم):</label>
+                        <input type="number" id="weight" class="form-input" required min="20" max="200">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age" class="form-label">العمر:</label>
+                        <input type="number" id="age" class="form-input" required min="5" max="18">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="medicalCondition" class="form-label">الحالة الصحية (اختياري):</label>
+                        <select id="medicalCondition" class="form-select">
+                            <option value="">لا يوجد</option>
+                            <option value="diabetes">سكري</option>
+                            <option value="asthma">ربو</option>
+                            <option value="allergy">حساسية</option>
+                        </select>
+                    </div>
+                    
+                    <div class="guardian-section">
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox" id="linkGuardian">
+                            ربط التطبيق بولي الأمر
+                        </label>
+                        
+                        <div id="guardianFields" class="hidden">
+                            <div class="form-group">
+                                <label for="guardianName" class="form-label">اسم ولي الأمر:</label>
+                                <input type="text" id="guardianName" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guardianPhone" class="form-label">رقم الهاتف:</label>
+                                <input type="tel" id="guardianPhone" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary pulse-animation">ابدأ الرحلة الصحية</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Main App Screen -->
+        <div class="app-card hidden" id="mainAppScreen">
+            <div class="app-header">
+                <h1 class="app-title" id="welcomeMessage">مرحباً!</h1>
+            </div>
+            
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-tab="homeTab">الصفحة الرئيسية</div>
+                <div class="nav-tab" data-tab="bmiTab">مؤشر الكتلة</div>
+                <div class="nav-tab" data-tab="dailyPlanTab">خطة اليوم</div>
+                <div class="nav-tab" data-tab="challengesTab">التحديات</div>
+                <div class="nav-tab" data-tab="educationTab">التوعية</div>
+                <div class="nav-tab" data-tab="rewardsTab">الجوائز</div>
+                <div class="nav-tab" data-tab="inventoryTab">المخزن</div>
+                <div class="nav-tab" data-tab="feedbackTab">التوصيات</div>
+                <div class="nav-tab" data-tab="settingsTab">الإعدادات</div>
+            </div>
+            
+            <!-- Home Tab -->
+            <div class="form-container" id="homeTab">
+                <!-- Daily tracking notification -->
+                <div class="tracking-notification hidden" id="trackingNotification">
+                    <div>
+                        <i class="fas fa-exclamation-circle"></i> حان الوقت لتحديث قياسات الطول والوزن اليومية
+                    </div>
+                    <button id="updateMeasurementsBtn">تحديث الآن</button>
+                </div>
+                
+                <div class="daily-tip">
+                    <h3><i class="fas fa-lightbulb"></i> نصيحة اليوم</h3>
+                    <p id="dailyTipText">تناول وجبة الإفطار لتحصل على الطاقة اللازمة لبدء يومك بنشاط!</p>
+                </div>
+                
+                <div class="home-stats">
+                    <div class="home-stat">
+                        <div class="home-stat-value" id="homeSteps">2,340</div>
+                        <div class="home-stat-label">خطوة اليوم</div>
+                    </div>
+                    <div class="home-stat">
+                        <div class="home-stat-value" id="homeWater">5/8</div>
+                        <div class="home-stat-label">أكواب ماء</div>
+                    </div>
+                    <div class="home-stat">
+                        <div class="coin-container">
+                            <i class="fas fa-heart coin-icon"></i>
+                            <span class="coin-count" id="homeCoins">15</span>
+                        </div>
+                        <div class="home-stat-label">العملات</div>
+                    </div>
+                </div>
+                
+                <div class="home-bmi">
+                    <div class="home-bmi-value" id="homeBmiValue"></div>
+                    <div class="home-bmi-label" id="homeBmiLabel"></div>
+                </div>
+                
+                <div class="advice-container">
+                    <h3>آخر التوصيات الغذائية</h3>
+                    <p>تناول 5 حصص من الخضار والفواكه يومياً للمحافظة على صحة جيدة وتقوية المناعة.</p>
+                </div>
+                
+                <div class="alert-warning">
+                    <i class="fas fa-bell"></i> تحد جديد: "مشي 10,000 خطوة" - كافأ نفسك بـ 5 عملات!
+                </div>
+                
+                <div class="motivational-quote">
+                    "الصحة تاج على رؤوس الأصحاء، لا يراه إلا المرضى"
+                </div>
+            </div>
+            
+            <!-- BMI Tab -->
+            <div class="form-container hidden" id="bmiTab">
+                <h2>تحليل مؤشر كتلة الجسم</h2>
+                
+                <div class="bmi-alert hidden" id="bmiAlert">
+                    <i class="fas fa-exclamation-triangle"></i> حالتك الصحية تحتاج لمتابعة، يرجى استشارة مختص.
+                </div>
+                
+                <div class="result-container">
+                    <div class="bmi-value" id="bmiValue"></div>
+                    <div class="bmi-category" id="bmiCategory"></div>
+                    
+                    <div class="bmi-chart">
+                        <canvas id="bmiChart"></canvas>
+                        <div class="chart-info">
+                            <p>الرسم البياني يوضح تطور مؤشر كتلة الجسم خلال الأسبوع</p>
+                        </div>
+                    </div>
+                    
+                    <div class="advice-container" id="advice">
+                        <p class="motivation">عزيزي، حافظ على وزنك الصحي!</p>
+                        <p id="bmiDate">تاريخ اليوم: 15 يونيو 2025</p>
+                        <h3>نصائح للمحافظة على وزنك الصحي:</h3>
+                        <ul>
+                            <li>واصل تناول الطعام المتوازن (خضار، فواكه، بروتين)</li>
+                            <li>مارس الرياضة 3 مرات أسبوعياً</li>
+                            <li>اشرب الماء بانتظام</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Daily tracking form -->
+                    <div class="tracking-form hidden" id="trackingForm">
+                        <h3><i class="fas fa-ruler-combined"></i> تحديث القياسات اليومية</h3>
+                        <div class="form-group">
+                            <label for="dailyHeight" class="form-label">الطول (سم):</label>
+                            <input type="number" id="dailyHeight" class="form-input" required min="100" max="250">
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyWeight" class="form-label">الوزن (كجم):</label>
+                            <input type="number" id="dailyWeight" class="form-input" required min="20" max="200">
+                        </div>
+                        <button class="btn btn-primary" id="saveMeasurementsBtn">حفظ القياسات</button>
+                    </div>
+                    
+                    <!-- Tracking history table - Only two days -->
+                    <h3 style="margin-top: 30px;">مقارنة اليوم والأمس</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>التاريخ</th>
+                                <th>الطول (سم)</th>
+                                <th>الوزن (كجم)</th>
+                                <th>مؤشر الكتلة</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trackingTableBody">
+                            <tr>
+                                <td>اليوم</td>
+                                <td>155</td>
+                                <td>45</td>
+                                <td>18.7</td>
+                                <td>وزن طبيعي</td>
+                            </tr>
+                            <tr>
+                                <td>الأمس</td>
+                                <td>155</td>
+                                <td>45.2</td>
+                                <td>18.8</td>
+                                <td>وزن طبيعي</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Daily Plan Tab -->
+            <div class="form-container hidden" id="dailyPlanTab">
+                <h2>خطة اليوم</h2>
+                
+                <div class="meal-plan">
+                    <h3><i class="fas fa-utensils"></i> الوجبات المقترحة</h3>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">الإفطار (7:00 ص)</div>
+                        <p>شوفان مع حليب قليل الدسم وموز</p>
+                        <div class="meal-calories">~300 سعرة حرارية</div>
+                        <button class="btn btn-secondary alt-recipe-btn" style="margin-top: 10px;">
+                            <i class="fas fa-sync-alt"></i> وصفة بديلة
+                        </button>
+                    </div>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">وجبة خفيفة (10:00 ص)</div>
+                        <p>تفاحة وحفنة من اللوز</p>
+                        <div class="meal-calories">~150 سعرة حرارية</div>
+                        <button class="btn btn-secondary alt-recipe-btn" style="margin-top: 10px;">
+                            <i class="fas fa-sync-alt"></i> وصفة بديلة
+                        </button>
+                    </div>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">الغداء (1:00 م)</div>
+                        <p>صدر دجاج مشوي مع أرز بني وخضروات</p>
+                        <div class="meal-calories">~450 سعرة حرارية</div>
+                        <button class="btn btn-secondary alt-recipe-btn" style="margin-top: 10px;">
+                            <i class="fas fa-sync-alt"></i> وصفة بديلة
+                        </button>
+                    </div>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">وجبة خفيفة (4:00 م)</div>
+                        <p>زبادي مع توت طازج</p>
+                        <div class="meal-calories">~100 سعرة حرارية</div>
+                        <button class="btn btn-secondary alt-recipe-btn" style="margin-top: 10px;">
+                            <i class="fas fa-sync-alt"></i> وصفة بديلة
+                        </button>
+                    </div>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">العشاء (7:00 م)</div>
+                        <p>سمك مشوي مع سلطة خضراء</p>
+                        <div class="meal-calories">~350 سعرة حرارية</div>
+                        <button class="btn btn-secondary alt-recipe-btn" style="margin-top: 10px;">
+                            <i class="fas fa-sync-alt"></i> وصفة بديلة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- New Recipes Section -->
+                <div class="recipe-section">
+                    <h3><i class="fas fa-utensil-spoon"></i> وصفات صحية</h3>
+                    <div class="recipe-grid">
+                        <div class="recipe-card slide-in-up">
+                            <div class="recipe-image" style="background: linear-gradient(45deg, #FFD700, #FFA500);"></div>
+                            <div class="recipe-info">
+                                <div class="recipe-title">سلطة الفواكه الطازجة</div>
+                                <div class="recipe-time"><i class="fas fa-clock"></i> 15 دقيقة</div>
+                            </div>
+                        </div>
+                        <div class="recipe-card slide-in-up">
+                            <div class="recipe-image" style="background: linear-gradient(45deg, #8BC34A, #4CAF50);"></div>
+                            <div class="recipe-info">
+                                <div class="recipe-title">سموثي أخضر صحي</div>
+                                <div class="recipe-time"><i class="fas fa-clock"></i> 10 دقيقة</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="exercise-plan">
+                    <h3><i class="fas fa-running"></i> النشاط الرياضي المقترح</h3>
+                    
+                    <div class="exercise-card">
+                        <div class="exercise-difficulty easy">س</div>
+                        <div class="challenge-title">مشي 10 دقائق</div>
+                        <p>امشي في الهواء الطلق لمدة 10 دقائق لتحسين الدورة الدموية.</p>
+                        <button class="btn btn-easy exercise-complete">أكمل التمرين</button>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <div class="exercise-difficulty medium">م</div>
+                        <div class="challenge-title">تمارين إطالة</div>
+                        <p>قم بتمارين الإطالة لمدة 5 دقائق لتحسين مرونتك.</p>
+                        <button class="btn btn-secondary exercise-complete">أكمل التمرين</button>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <div class="exercise-difficulty hard">ص</div>
+                        <div class="challenge-title">تمارين القوة</div>
+                        <p>قم بتمارين القوة لمدة 10 دقائق لبناء العضلات.</p>
+                        <button class="btn btn-hard exercise-complete">أكمل التمرين</button>
+                    </div>
+                </div>
+                
+                <!-- New Sleep Tracker -->
+                <div class="sleep-tracker">
+                    <h3><i class="fas fa-bed"></i> متتبع النوم</h3>
+                    <div class="sleep-inputs">
+                        <div class="sleep-input">
+                            <label>وقت النوم</label>
+                            <input type="time" id="bedtime" value="22:00">
+                        </div>
+                        <div class="sleep-input">
+                            <label>وقت الاستيقاظ</label>
+                            <input type="time" id="waketime" value="07:00">
+                        </div>
+                    </div>
+                    <button class="btn btn-sleep" id="calculateSleep">حساب مدة النوم</button>
+                    <div class="sleep-result" id="sleepResult">المدة: 9 ساعات</div>
+                </div>
+                
+                <div class="water-tracker">
+                    <h3><i class="fas fa-tint"></i> تذكير بشرب الماء</h3>
+                    <p>شربت اليوم: <strong id="waterCount">5</strong> من 8 أكواب</p>
+                    
+                    <div class="water-cups">
+                        <div class="water-cup filled">
+                            <div class="water-fill"></div>
+                        </div>
+                        <div class="water-cup filled">
+                            <div class="water-fill"></div>
+                        </div>
+                        <div class="water-cup filled">
+                            <div class="water-fill"></div>
+                        </div>
+                        <div class="water-cup filled">
+                            <div class="water-fill"></div>
+                        </div>
+                        <div class="water-cup filled">
+                            <div class="water-fill"></div>
+                        </div>
+                        <div class="water-cup">
+                            <div class="water-fill"></div>
+                        </div>
+                        <div class="water-cup">
+                            <div class="water-fill"></div>
+                        </div>
+                        <div class="water-cup">
+                            <div class="water-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-water" id="addWaterBtn">سجل شرب كوب ماء</button>
+                </div>
+                
+                <div class="medal-section">
+                    <h3><i class="fas fa-medal"></i> ميداليات اليوم</h3>
+                    <div class="medals-container">
+                        <div class="medal achieved">
+                            <i class="fas fa-apple-alt"></i>
+                            <div class="medal-title">التغذية</div>
+                        </div>
+                        <div class="medal">
+                            <i class="fas fa-running"></i>
+                            <div class="medal-title">الرياضة</div>
+                        </div>
+                        <div class="medal">
+                            <i class="fas fa-bed"></i>
+                            <div class="medal-title">النوم</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Challenges Tab -->
+            <div class="form-container hidden" id="challengesTab">
+                <h2>التحديات والتفاعل</h2>
+                
+                <!-- تحدي الأسبوع المضاف -->
+                <div class="weekly-challenge">
+                    <h3><i class="fas fa-trophy"></i> تحدي الأسبوع: المشي 50,000 خطوة</h3>
+                    <p>تمكن من المشي 50,000 خطوة خلال هذا الأسبوع واربح جوائز حصرية!</p>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 35%;"></div>
+                        </div>
+                        <div style="text-align: center; margin-top: 5px;">35% مكتمل (17,500 خطوة)</div>
+                    </div>
+                    
+                    <div class="challenge-reward">
+                        <div class="reward-item">
+                            <i class="fas fa-palette"></i> خلفية حصرية
+                        </div>
+                        <div class="reward-item">
+                            <i class="fas fa-coins"></i> 50 عملة
+                        </div>
+                        <div class="reward-item">
+                            <i class="fas fa-medal"></i> شارة خاصة
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="margin-top: 15px;">قبول التحدي</button>
+                </div>
+                
+                <!-- New Friends Leaderboard -->
+                <div class="friend-leaderboard">
+                    <h3><i class="fas fa-trophy"></i> لوحة المتصدرين</h3>
+                    <div class="friend-item">
+                        <div class="friend-avatar">أ</div>
+                        <div class="friend-info">
+                            <div class="friend-name">أحمد محمد</div>
+                            <div class="friend-points">120 نقطة</div>
+                        </div>
+                        <div class="friend-rank">1</div>
+                    </div>
+                    <div class="friend-item">
+                        <div class="friend-avatar">س</div>
+                        <div class="friend-info">
+                            <div class="friend-name">سارة عبدالله</div>
+                            <div class="friend-points">105 نقطة</div>
+                        </div>
+                        <div class="friend-rank">2</div>
+                    </div>
+                    <div class="friend-item">
+                        <div class="friend-avatar">م</div>
+                        <div class="friend-info">
+                            <div class="friend-name">محمد خالد</div>
+                            <div class="friend-points">98 نقطة</div>
+                        </div>
+                        <div class="friend-rank">3</div>
+                    </div>
+                    <div class="friend-item">
+                        <div class="friend-avatar">ل</div>
+                        <div class="friend-info">
+                            <div class="friend-name">لينا فارس</div>
+                            <div class="friend-points">85 نقطة</div>
+                        </div>
+                        <div class="friend-rank">4</div>
+                    </div>
+                </div>
+                
+                <h3>إنجازاتي</h3>
+                <div id="achievementsContainer">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <div class="achievement-title">بطل المشي</div>
+                            <div class="achievement-date">أكملت 10,000 خطوة في يوم واحد</div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <div class="achievement-title">ملك الماء</div>
+                            <div class="achievement-date">شربت 8 أكواب ماء لمدة 7 أيام متتالية</div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <div class="achievement-title">بطل التغذية</div>
+                            <div class="achievement-date">تناولت 5 حصص خضار وفواكه يومياً لمدة أسبوع</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>مقارنة النتائج مع الزملاء</h3>
+                <div class="comparison-chart">
+                    <div class="comparison-bar" style="height: 70%;">
+                        <div class="comparison-value">أنت: 70%</div>
+                        <div class="comparison-label">المشي</div>
+                    </div>
+                    <div class="comparison-bar" style="height: 50%;">
+                        <div class="comparison-value">المتوسط: 50%</div>
+                        <div class="comparison-label">الماء</div>
+                    </div>
+                    <div class="comparison-bar" style="height: 65%;">
+                        <div class="comparison-value">الأعلى: 90%</div>
+                        <div class="comparison-label">التمارين</div>
+                    </div>
+                </div>
+                
+                <!-- Progress Comparison Table -->
+                <h3>جدول مقارنة التقدم</h3>
+                <table class="tracking-table">
+                    <thead>
+                        <tr>
+                            <th>التحدي</th>
+                            <th>الحالة</th>
+                            <th>التقدم</th>
+                            <th>الزملاء</th>
+                            <th>الأفضل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>المشي اليومي</td>
+                            <td><span style="color: #4CAF50;">مكتمل</span></td>
+                            <td>100%</td>
+                            <td>75%</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>شرب الماء</td>
+                            <td><span style="color: #FF9800;">قيد التقدم</span></td>
+                            <td>62%</td>
+                            <td>58%</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>التمارين الرياضية</td>
+                            <td><span style="color: #4CAF50;">مكتمل</span></td>
+                            <td>100%</td>
+                            <td>82%</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>النوم الكافي</td>
+                            <td><span style="color: #f44336;">غير مكتمل</span></td>
+                            <td>45%</td>
+                            <td>67%</td>
+                            <td>92%</td>
+                        </tr>
+                        <tr>
+                            <td>تناول الخضار</td>
+                            <td><span style="color: #FF9800;">قيد التقدم</span></td>
+                            <td>78%</td>
+                            <td>65%</td>
+                            <td>88%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="alert-warning">
+                    <i class="fas fa-bell"></i> تحد جديد: "تمارين القوة اليومية" - كافأ نفسك بـ 7 عملات!
+                </div>
+                
+                <div id="dailyChallenges">
+                    <!-- Challenges will be added here by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Education Tab -->
+            <div class="form-container hidden" id="educationTab">
+                <h2>التوعية والمحتوى التعليمي</h2>
+                
+                <!-- القصص المصورة المضاف -->
+                <div class="comic-strip">
+                    <div class="comic-panel">
+                        <div class="comic-image"><i class="fas fa-apple-alt"></i></div>
+                        <div class="comic-caption">التغذية الصحية هي أساس النمو السليم</div>
+                    </div>
+                    <div class="comic-panel">
+                        <div class="comic-image"><i class="fas fa-running"></i></div>
+                        <div class="comic-caption">30 دقيقة من الرياضة يومياً تحافظ على صحتك</div>
+                    </div>
+                    <div class="comic-panel">
+                        <div class="comic-image"><i class="fas fa-bed"></i></div>
+                        <div class="comic-caption">النوم الكافي يساعد على التركيز في المدرسة</div>
+                    </div>
+                    <div class="comic-panel">
+                        <div class="comic-image"><i class="fas fa-hand-holding-water"></i></div>
+                        <div class="comic-caption">شرب الماء ينقي الجسم من السموم</div>
+                    </div>
+                </div>
+                
+                <div class="kid-video">
+                    <div class="kid-video-header">
+                        <i class="fas fa-star"></i> فيديو تعليمي للأطفال
+                    </div>
+                    <div class="kid-video-content">
+                        <h3 style="text-align: center; color: #2196F3;">كيف تغسل يديك بطريقة صحيحة؟</h3>
+                        <div class="featured-video">
+                            <div class="comic-image"><i class="fas fa-hands-wash"></i></div>
+                            <div class="comic-caption">تعلم الطريقة الصحيحة لغسل اليدين</div>
+                        </div>
+                        <p style="text-align: center; margin-top: 10px;">فيديو تعليمي للأطفال يشرح خطوات غسل اليدين بطريقة صحيحة للحفاظ على الصحة</p>
+                    </div>
+                </div>
+                
+                <div class="video-grid">
+                    <div class="video-item">
+                        <div class="video-thumb">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-item-title">التغذية الصحية للأطفال</div>
+                            <p>تعلم أهمية تناول الفواكه والخضروات</p>
+                            <span class="age-badge">مناسب من 5 سنوات</span>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item">
+                        <div class="video-thumb">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-item-title">العناية بالأسنان</div>
+                            <p>كيف تحافظ على أسنانك صحية وقوية؟</p>
+                            <span class="age-badge">مناسب من 6 سنوات</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-card">
+                    <div class="quiz-question">ما هي كمية الماء الموصى بها يومياً للأطفال؟</div>
+                    <div class="quiz-option">4 أكواب</div>
+                    <div class="quiz-option">6 أكواب</div>
+                    <div class="quiz-option">8 أكواب</div>
+                    <div class="quiz-option">10 أكواب</div>
+                    <button class="btn btn-primary" style="margin-top: 15px;">تحقق من الإجابة</button>
+                </div>
+            </div>
+            
+            <!-- Rewards Tab -->
+            <div class="form-container hidden" id="rewardsTab">
+                <h2>جوائز وعجلة الحظ</h2>
+                
+                <div class="wheel-container">
+                    <div class="wheel-pointer"></div>
+                    <div class="wheel" id="fortuneWheel"></div>
+                    <button class="spin-btn" id="spinBtn">دور!</button>
+                </div>
+                
+                <div class="wheel-cost">
+                    <i class="fas fa-coins"></i> تكلفة الدوران: 10 عملات
+                </div>
+                
+                <div class="wheel-result hidden" id="wheelResult">
+                    <!-- ستظهر نتيجة الدوران هنا -->
+                </div>
+                
+                <h3>خلفيات الأسطوري</h3>
+                <div class="shop-item">
+                    <img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_640.jpg" alt="خلفية نادرة">
+                    <div class="shop-item-info">
+                        <div class="shop-item-title">سماء النجوم <span class="rarity-badge mythical">خرافي</span></div>
+                        <div class="shop-item-price"><i class="fas fa-coins"></i> 500 عملة</div>
+                    </div>
+                    <button class="btn btn-primary">شراء</button>
+                </div>
+                
+                <div class="shop-item">
+                    <img src="https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_640.jpg" alt="خلفية أسطورية">
+                    <div class="shop-item-info">
+                        <div class="shop-item-title">ألوان الشفق <span class="rarity-badge legendary">أسطوري</span></div>
+                        <div class="shop-item-price"><i class="fas fa-coins"></i> 250 عملة</div>
+                    </div>
+                    <button class="btn btn-primary">شراء</button>
+                </div>
+                
+                <div class="shop-item">
+                    <img src="https://cdn.pixabay.com/photo/2015/09/09/16/05/forest-931706_640.jpg" alt="خلفية نادرة">
+                    <div class="shop-item-info">
+                        <div class="shop-item-title">الغابة السحرية <span class="rarity-badge epic">نادر</span></div>
+                        <div class="shop-item-price"><i class="fas fa-coins"></i> 100 عملة</div>
+                    </div>
+                    <button class="btn btn-primary">شراء</button>
+                </div>
+                
+                <div class="shop-item">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/29/05/45/beach-1867285_640.jpg" alt="خلفية شائعة">
+                    <div class="shop-item-info">
+                        <div class="shop-item-title">المحيط الهادئ <span class="rarity-badge rare">شائع</span></div>
+                        <div class="shop-item-price"><i class="fas fa-coins"></i> 50 عملة</div>
+                    </div>
+                    <button class="btn btn-primary">شراء</button>
+                </div>
+            </div>
+            
+            <!-- Inventory Tab -->
+            <div class="form-container hidden" id="inventoryTab">
+                <div class="inventory-header">
+                    <h2>مخزن الخلفيات</h2>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">الكل</button>
+                        <button class="filter-btn" data-filter="common">شائعة</button>
+                        <button class="filter-btn" data-filter="rare">نادرة</button>
+                        <button class="filter-btn" data-filter="epic">نادرة جداً</button>
+                        <button class="filter-btn" data-filter="legendary">أسطورية</button>
+                        <button class="filter-btn" data-filter="mythical">خرافية</button>
+                    </div>
+                </div>
+                
+                <div class="background-grid" id="backgroundsGrid">
+                    <!-- سيتم إضافة الخلفيات هنا عبر الجافاسكريبت -->
+                </div>
+                
+                <div class="empty-inventory hidden" id="emptyInventory">
+                    <i class="fas fa-box-open"></i>
+                    <h3>المخزن فارغ</h3>
+                    <p>لم تقم بشراء أي خلفيات بعد. توجه إلى متجر الجوائز لشراء خلفيات جديدة!</p>
+                    <button class="btn btn-primary" onclick="switchToTab('rewardsTab')">اذهب للمتجر</button>
+                </div>
+            </div>
+            
+            <!-- Feedback Tab -->
+            <div class="form-container hidden" id="feedbackTab">
+                <h2>شاركنا رأيك</h2>
+                
+                <div class="feedback-container">
+                    <p>نحن نرحب بآرائكم ومقترحاتكم لتحسين التطبيق. أخبرنا بما ترغب في رؤيته في الإصدارات القادمة!</p>
+                    
+                    <div class="feedback-form">
+                        <textarea id="feedbackText" placeholder="ما الذي يعجبك في التطبيق؟ وما الذي ترغب في تحسينه؟"></textarea>
+                        <button class="btn btn-primary" id="submitFeedback">إرسال التوصية</button>
+                    </div>
+                </div>
+                
+                <div class="advice-container">
+                    <h3>أحدث التوصيات من المستخدمين</h3>
+                    <ul id="feedbackList">
+                        <li>أقترح إضافة تحديات جماعية مع الأصدقاء</li>
+                        <li>أتمنى رؤية المزيد من الوصفات الصحية البسيطة</li>
+                        <li>فكرة عجلة الحظ رائعة، شكراً لتنفيذها!</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Settings Tab -->
+            <div class="form-container hidden" id="settingsTab">
+                <h2>الإعدادات والدعم</h2>
+                
+                <div class="settings-section">
+                    <div class="settings-title">الإعدادات العامة</div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">اللغة:</label>
+                        <div class="language-selector">
+                            <div class="lang-option active">العربية</div>
+                            <div class="lang-option">English</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">الصوتيات:</label>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox" id="soundNotifications" checked> صوت التنبيهات
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox" id="backgroundMusic" checked> موسيقى الخلفية
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">المظهر:</label>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="theme" value="light" checked> فاتح
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="radio" name="theme" value="dark"> داكن
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <div class="settings-title">مركز المساعدة</div>
+                    
+                    <div class="advice-container">
+                        <h3>الأسئلة الشائعة</h3>
+                        <ul>
+                            <li>كيف أحسب مؤشر كتلة الجسم؟</li>
+                            <li>كيف أضيف تحديات جديدة؟</li>
+                            <li>كيف أغير معلوماتي الشخصية؟</li>
+                            <li>كيف أشارك إنجازاتي مع الأصدقاء؟</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <div class="settings-title">الدعم الفني</div>
+                    
+                    <div class="advice-container">
+                        <p>للاستفسار أو الإبلاغ عن مشكلة، يرجى التواصل مع الدعم الفني:</p>
+                        <p style="font-weight: bold; font-size: 18px; margin: 10px 0;">
+                            <i class="fas fa-phone"></i> 0459 9548
+                        </p>
+                        <button class="btn btn-primary" style="margin-top: 15px;">طلب تواصل مع مختص</button>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <div class="settings-title">ربط بولي الأمر</div>
+                    
+                    <div class="guardian-section">
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox" id="linkGuardianSetting" checked> ربط التطبيق بولي الأمر
+                        </label>
+                        
+                        <div class="form-group">
+                            <label class="form-label">ولي الأمر: محمد أحمد</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">رقم الهاتف: 0550123456</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Character and Speech Bubble -->
+    <div class="character-talk" id="character">
+        <img src="https://cdn-icons-png.flaticon.com/512/1864/1864593.png" alt="شخصية كرتونية" width="100">
+        <div class="speech-bubble" id="speechBubble"></div>
+    </div>
+
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        // DOM Elements
+        const signinScreen = document.getElementById('signinScreen');
+        const mainAppScreen = document.getElementById('mainAppScreen');
+        const signinForm = document.getElementById('signinForm');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        const navTabs = document.querySelectorAll('.nav-tab');
+        const achievementToast = document.getElementById('achievementToast');
+        
+        // Tab contents
+        const tabContents = {
+            homeTab: document.getElementById('homeTab'),
+            bmiTab: document.getElementById('bmiTab'),
+            dailyPlanTab: document.getElementById('dailyPlanTab'),
+            challengesTab: document.getElementById('challengesTab'),
+            educationTab: document.getElementById('educationTab'),
+            rewardsTab: document.getElementById('rewardsTab'),
+            inventoryTab: document.getElementById('inventoryTab'),
+            feedbackTab: document.getElementById('feedbackTab'),
+            settingsTab: document.getElementById('settingsTab')
+        };
+        
+        const character = document.getElementById('character');
+        const speechBubble = document.getElementById('speechBubble');
+        const linkGuardian = document.getElementById('linkGuardian');
+        const guardianFields = document.getElementById('guardianFields');
+        const bmiAlert = document.getElementById('bmiAlert');
+        const addWaterBtn = document.getElementById('addWaterBtn');
+        const waterCups = document.querySelectorAll('.water-cup');
+        const trackingNotification = document.getElementById('trackingNotification');
+        const updateMeasurementsBtn = document.getElementById('updateMeasurementsBtn');
+        const trackingForm = document.getElementById('trackingForm');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const dailyTipText = document.getElementById('dailyTipText');
+        const calculateSleepBtn = document.getElementById('calculateSleep');
+        const sleepResult = document.getElementById('sleepResult');
+        
+        // Bot Elements
+        const botContainer = document.getElementById('botContainer');
+        const botMessages = document.getElementById('botMessages');
+        const botInput = document.getElementById('botInput');
+        const botSend = document.getElementById('botSend');
+        const botClose = document.getElementById('botClose');
+        
+        // User Data
+        let userData = {
+            name: '',
+            school: '',
+            grade: '',
+            gender: '',
+            height: 0,
+            weight: 0,
+            age: 0,
+            medicalCondition: '',
+            guardianName: '',
+            guardianPhone: '',
+            coins: 15,
+            bmiHistory: [],
+            completedChallenges: [],
+            completedExercises: [],
+            purchasedItems: [],
+            lastChallengeDate: null,
+            lastExerciseDate: null,
+            waterCount: 5,
+            lastTrackingDate: null,
+            sleepDuration: 9,
+            bmiChart: null,
+            theme: 'light',
+            purchasedBackgrounds: [
+                { id: 'bg1', name: 'السماء الزرقاء', rarity: 'common', price: 50, image: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_640.jpg' },
+                { id: 'bg2', name: 'الغابة الخضراء', rarity: 'common', price: 50, image: 'https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_640.jpg' },
+                { id: 'bg3', name: 'جبال الثلج', rarity: 'rare', price: 100, image: 'https://cdn.pixabay.com/photo/2015/09/09/16/05/forest-931706_640.jpg' },
+                { id: 'bg4', name: 'الشاطئ الذهبي', rarity: 'epic', price: 150, image: 'https://cdn.pixabay.com/photo/2016/11/29/05/45/beach-1867285_640.jpg' }
+            ],
+            currentBackground: 'bg1'
+        };
+        
+        // Motivational Phrases
+        const motivationalPhrases = [
+            "أحسنت! أنت على الطريق الصحيح",
+            "استمر يا بطل! صحتك كنزك",
+            "ما شاء الله! تقدم رائع",
+            "أنت مذهل! واصل التقدم",
+            "التميز أصبح عادتك! أحسنت",
+            "الله يبارك في صحتك وعافيتك",
+            "بإصرارك ستصل إلى القمة",
+            "كل خطوة تقربك من هدفك",
+            "أنت قدوة لزملائك في الاهتمام بالصحة",
+            "الصحة تاج على رؤوس الأصحاء"
+        ];
+        
+        // Daily Health Tips
+        const dailyTips = [
+            "تناول وجبة الإفطار لتحصل على الطاقة اللازمة لبدء يومك بنشاط!",
+            "اشرب 8 أكواب من الماء يومياً لتحافظ على رطوبة جسمك",
+            "احرص على النوم 8 ساعات يومياً لتحصل على الراحة الكافية",
+            "مارس الرياضة لمدة 30 دقيقة يومياً لتحافظ على صحتك",
+            "تناول الخضروات والفواكه الطازجة للحصول على الفيتامينات",
+            "تجنب المشروبات الغازية والعصائر المحلاة بالسكر",
+            "اقرأ الملصقات الغذائية لتتعرف على محتويات الأطعمة",
+            "خصص وقتاً للاسترخاء والتنفس العميق يومياً",
+            "استخدم السلالم بدلاً من المصعد لزيادة نشاطك اليومي",
+            "تناول الأسماك مرتين أسبوعياً لفوائدها الصحية العديدة"
+        ];
+        
+        // Initialize app
+        function initApp() {
+            // Load saved data
+            const savedData = localStorage.getItem('healthAppData');
+            if (savedData) {
+                userData = JSON.parse(savedData);
+                
+                // If user already signed in, show main app
+                if (userData.name) {
+                    showMainApp();
+                }
+            }
+            
+            // Set daily health tip
+            const tipIndex = new Date().getDate() % dailyTips.length;
+            dailyTipText.textContent = dailyTips[tipIndex];
+            
+            // Set up tab navigation
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all tab contents
+                    Object.values(tabContents).forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show selected tab content
+                    const tabId = tab.getAttribute('data-tab');
+                    if (tabContents[tabId]) {
+                        tabContents[tabId].class.classList.remove('hidden');
+                        
+                        // Initialize BMI chart when BMI tab is opened
+                        if (tabId === 'bmiTab' && userData.bmiChart) {
+                            initBmiChart();
+                        }
+                        
+                        // Create wheel when rewards tab is opened
+                        if (tabId === 'rewardsTab') {
+                            createFortuneWheel();
+                        }
+                        
+                        // Load inventory when inventory tab is opened
+                        if (tabId === 'inventoryTab') {
+                            loadInventoryPage();
+                        }
+                    }
+                });
+            });
+            
+            // Set up character interaction
+            let clickCount = 0;
+            let clickTimer;
+            
+            character.addEventListener('click', function() {
+                clickCount++;
+                
+                if (clickCount === 1) {
+                    // Single click - show motivational phrase
+                    clickTimer = setTimeout(() => {
+                        showRandomMotivationalPhrase();
+                        clickCount = 0;
+                    }, 300);
+                } else if (clickCount === 2) {
+                    // Double click - show bot
+                    clearTimeout(clickTimer);
+                    showBot();
+                    clickCount = 0;
+                }
+            });
+            
+            // Make character draggable
+            makeCharacterDraggable();
+            
+            // Set up guardian linking
+            linkGuardian.addEventListener('change', function() {
+                if (this.checked) {
+                    guardianFields.classList.remove('hidden');
+                } else {
+                    guardianFields.classList.add('hidden');
+                }
+            });
+            
+            // Set up water tracking
+            waterCups.forEach((cup, index) => {
+                cup.addEventListener('click', function() {
+                    this.classList.toggle('filled');
+                    updateWaterCount();
+                });
+            });
+            
+            addWaterBtn.addEventListener('click', function() {
+                if (userData.waterCount < 8) {
+                    userData.waterCount++;
+                    updateWaterDisplay();
+                    saveUserData();
+                    showAchievementToast("لقد سجلت كوب ماء جديد!");
+                    showMotivationalPhrase("أحسنت! شرب الماء مهم لصحتك");
+                }
+            });
+            
+            // Set up sleep calculation
+            calculateSleepBtn.addEventListener('click', calculateSleepDuration);
+            
+            // Set up bot
+            setupBot();
+            
+            // Set up exercise buttons
+            document.querySelectorAll('.exercise-complete').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.textContent = 'تم الإكمال';
+                    this.disabled = true;
+                    showMotivationalPhrase("أحسنت! لقد أكملت التمرين بنجاح");
+                    showAchievementToast("تهانينا! لقد أكملت التمرين بنجاح");
+                    
+                    // Add coins for completing exercise
+                    userData.coins += 3;
+                    document.getElementById('homeCoins').textContent = userData.coins;
+                    saveUserData();
+                });
+            });
+            
+            // Set up tracking notification
+            updateMeasurementsBtn.addEventListener('click', function() {
+                trackingNotification.classList.add('hidden');
+                trackingForm.classList.remove('hidden');
+            });
+            
+            // Set up save measurements button
+            document.getElementById('saveMeasurementsBtn').addEventListener('click', function() {
+                const height = parseFloat(document.getElementById('dailyHeight').value);
+                const weight = parseFloat(document.getElementById('dailyWeight').value);
+                
+                if (height && weight) {
+                    userData.height = height;
+                    userData.weight = weight;
+                    userData.lastTrackingDate = new Date().toISOString();
+                    
+                    // Add to tracking history
+                    const today = new Date();
+                    const dateStr = today.toLocaleDateString('ar-EG', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                    });
+                    
+                    const bmi = calculateBMI(weight, height);
+                    const bmiCategory = getBMICategory(bmi);
+                    
+                    // Add to BMI history
+                    userData.bmiHistory.unshift({
+                        date: dateStr,
+                        height,
+                        weight,
+                        bmi,
+                        category: bmiCategory
+                    });
+                    
+                    // Keep only last 10 entries
+                    if (userData.bmiHistory.length > 10) {
+                        userData.bmiHistory.pop();
+                    }
+                    
+                    // Update table
+                    updateTrackingTable();
+                    
+                    // Hide form and update values
+                    trackingForm.classList.add('hidden');
+                    document.getElementById('homeBmiValue').textContent = bmi;
+                    document.getElementById('homeBmiLabel').textContent = bmiCategory;
+                    document.getElementById('bmiValue').textContent = bmi;
+                    document.getElementById('bmiCategory').textContent = bmiCategory;
+                    
+                    // Update date
+                    document.getElementById('bmiDate').textContent = `تاريخ اليوم: ${dateStr}`;
+                    
+                    // Initialize BMI chart
+                    initBmiChart();
+                    
+                    // Check if BMI requires notification
+                    if (bmi >= 30 || bmi <= 18.5) {
+                        document.getElementById('bmiAlert').classList.remove('hidden');
+                        
+                        // If guardian phone is available, simulate sending notification
+                        if (userData.guardianPhone) {
+                            // In a real app, we would send an API request to an SMS service
+                            console.log(`Sending SMS to guardian at ${userData.guardianPhone}: طفلك ${userData.name} لديه مؤشر كتلة جسم غير طبيعي: ${bmi}`);
+                            alert(`تم إرسال تنبيه إلى ولي الأمر بالرقم ${userData.guardianPhone}`);
+                        }
+                        
+                        showMotivationalPhrase("اهتم بصحتك، استشر مختصاً للتغذية");
+                    } else {
+                        document.getElementById('bmiAlert').classList.add('hidden');
+                        showMotivationalPhrase("أحسنت! وزنك صحي، استمر في العادات الجيدة");
+                    }
+                    
+                    saveUserData();
+                }
+            });
+            
+            // Set up logout button
+            logoutBtn.addEventListener('click', function() {
+                localStorage.removeItem('healthAppData');
+                signinScreen.classList.remove('hidden');
+                mainAppScreen.classList.add('hidden');
+                character.style.display = 'none';
+                document.getElementById('signinForm').reset();
+            });
+            
+            // Check if we need to show tracking notification
+            checkTrackingNotification();
+            
+            // Set up theme switcher
+            setupThemeSwitcher();
+            
+            // Set up feedback system
+            setupFeedbackSystem();
+            
+            // Set up alternative recipe buttons
+            document.querySelectorAll('.alt-recipe-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const mealCard = this.closest('.meal-card');
+                    const mealName = mealCard.querySelector('.meal-time').textContent;
+                    showBot();
+                    setTimeout(() => {
+                        botInput.value = `أحتاج وصفة بديلة لـ ${mealName}، ميزانيتي محدودة وعائلتي كبيرة.`;
+                        botSend.click();
+                    }, 500);
+                });
+            });
+            
+            // Set up feedback submit button
+            document.getElementById('submitFeedback').addEventListener('click', function() {
+                const feedback = document.getElementById('feedbackText').value.trim();
+                if (feedback) {
+                    const feedbackList = document.getElementById('feedbackList');
+                    const newItem = document.createElement('li');
+                    newItem.textContent = feedback;
+                    feedbackList.insertBefore(newItem, feedbackList.firstChild);
+                    document.getElementById('feedbackText').value = '';
+                    
+                    showMotivationalPhrase("شكراً لك على ملاحظاتك القيمة!");
+                    
+                    // Save feedbacks in data
+                    if (!userData.feedbacks) userData.feedbacks = [];
+                    userData.feedbacks.push(feedback);
+                    saveUserData();
+                }
+            });
+            
+            // Set up filter buttons for inventory
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    filterBackgrounds(this.getAttribute('data-filter'));
+                });
+            });
+        }
+        
+        // Create fortune wheel
+        function createFortuneWheel() {
+            const wheel = document.getElementById('fortuneWheel');
+            const rewards = [
+                { text: 'خلفية خضراء', color: '#4CAF50', rarity: 'common' },
+                { text: 'خلفية زرقاء', color: '#2196F3', rarity: 'common' },
+                { text: '2x نقاط', color: '#FFC107', rarity: 'rare' },
+                { text: 'خلفية أرجوانية', color: '#9C27B0', rarity: 'epic' },
+                { text: 'خلفية ذهبية', color: '#FF9800', rarity: 'legendary' },
+                { text: 'خلفية حمراء', color: '#f44336', rarity: 'mythical' }
+            ];
+            
+            wheel.innerHTML = '';
+            const angle = 360 / rewards.length;
+            
+            rewards.forEach((reward, index) => {
+                const section = document.createElement('div');
+                section.className = 'wheel-section';
+                section.style.backgroundColor = reward.color;
+                section.style.transform = `rotate(${index * angle}deg)`;
+                section.innerHTML = `<div style="transform: rotate(${angle/2}deg);">${reward.text}</div>`;
+                wheel.appendChild(section);
+            });
+            
+            // Set up spin button
+            document.getElementById('spinBtn').addEventListener('click', spinWheel);
+        }
+        
+        // Spin the wheel
+        function spinWheel() {
+            if (userData.coins < 10) {
+                showMotivationalPhrase("ليس لديك عملات كافية! أكمل المزيد من التحديات");
+                return;
+            }
+            
+            userData.coins -= 10;
+            document.getElementById('homeCoins').textContent = userData.coins;
+            saveUserData();
+            
+            const wheel = document.getElementById('fortuneWheel');
+            const spinBtn = document.getElementById('spinBtn');
+            const wheelResult = document.getElementById('wheelResult');
+            
+            spinBtn.disabled = true;
+            wheelResult.classList.add('hidden');
+            
+            // Random angle with guaranteed reward
+            const rewards = 6;
+            const rewardAngle = 360 / rewards;
+            const extraRotations = 5; // 5 full rotations
+            const randomReward = Math.floor(Math.random() * rewards);
+            const degrees = extraRotations * 360 + (randomReward * rewardAngle) + (Math.random() * rewardAngle);
+            
+            wheel.style.transform = `rotate(${degrees}deg)`;
+            
+            setTimeout(() => {
+                spinBtn.disabled = false;
+                
+                const rewardsList = [
+                    { text: 'مبروك! ربحت خلفية خضراء', rarity: 'common' },
+                    { text: 'مبروك! ربحت خلفية زرقاء', rarity: 'common' },
+                    { text: 'مبروك! ربحت مضاعفة النقاط لمدة 24 ساعة', rarity: 'rare' },
+                    { text: 'مبروك! ربحت خلفية أرجوانية نادرة', rarity: 'epic' },
+                    { text: 'مبروك! ربحت خلفية ذهبية أسطورية', rarity: 'legendary' },
+                    { text: 'مبروك! ربحت خلفية حمراء خرافية', rarity: 'mythical' }
+                ];
+                
+                wheelResult.innerHTML = `
+                    ${rewardsList[randomReward].text}
+                    <span class="rarity-badge ${rewardsList[randomReward].rarity}">
+                        ${rewardsList[randomReward].rarity === 'common' ? 'شائع' : 
+                          rewardsList[randomReward].rarity === 'rare' ? 'نادر' : 
+                          rewardsList[randomReward].rarity === 'epic' ? 'نادر جداً' : 
+                          rewardsList[randomReward].rarity === 'legendary' ? 'أسطوري' : 'خرافي'}
+                    </span>
+                `;
+                wheelResult.classList.remove('hidden');
+                showAchievementToast(wheelResult.textContent);
+            }, 4000);
+        }
+        
+        // Set up theme switcher
+        function setupThemeSwitcher() {
+            const themeRadios = document.querySelectorAll('input[name="theme"]');
+            
+            themeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'dark') {
+                        document.body.classList.add('dark-theme');
+                        userData.theme = 'dark';
+                    } else {
+                        document.body.classList.remove('dark-theme');
+                        userData.theme = 'light';
+                    }
+                    saveUserData();
+                });
+            });
+            
+            // Apply saved settings
+            if (userData.theme === 'dark') {
+                document.body.classList.add('dark-theme');
+                document.querySelector('input[name="theme"][value="dark"]').checked = true;
+            }
+        }
+        
+        // Set up feedback system
+        function setupFeedbackSystem() {
+            // Load saved feedbacks
+            if (userData.feedbacks) {
+                const feedbackList = document.getElementById('feedbackList');
+                userData.feedbacks.forEach(feedback => {
+                    const newItem = document.createElement('li');
+                    newItem.textContent = feedback;
+                    feedbackList.appendChild(newItem);
+                });
+            }
+        }
+        
+        // Make character draggable
+        function makeCharacterDraggable() {
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0;
+            let yOffset = 0;
+            
+            character.addEventListener("mousedown", dragStart);
+            character.addEventListener("mouseup", dragEnd);
+            character.addEventListener("mousemove", drag);
+            
+            character.addEventListener("touchstart", dragStart);
+            character.addEventListener("touchend", dragEnd);
+            character.addEventListener("touchmove", drag);
+            
+            function dragStart(e) {
+                if (e.type === "touchstart") {
+                    initialX = e.touches[0].clientX - xOffset;
+                    initialY = e.touches[0].clientY - yOffset;
+                } else {
+                    initialX = e.clientX - xOffset;
+                    initialY = e.clientY - yOffset;
+                }
+                
+                if (e.target === character) {
+                    isDragging = true;
+                }
+            }
+            
+            function dragEnd(e) {
+                initialX = currentX;
+                initialY = currentY;
+                
+                isDragging = false;
+            }
+            
+            function drag(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    
+                    if (e.type === "touchmove") {
+                        currentX = e.touches[0].clientX - initialX;
+                        currentY = e.touches[0].clientY - initialY;
+                    } else {
+                        currentX = e.clientX - initialX;
+                        currentY = e.clientY - initialY;
+                    }
+                    
+                    xOffset = currentX;
+                    yOffset = currentY;
+                    
+                    setTranslate(currentX, currentY, character);
+                }
+            }
+            
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            }
+        }
+        
+        // Initialize BMI chart
+        function initBmiChart() {
+            const ctx = document.getElementById('bmiChart').getContext('2d');
+            
+            // Destroy existing chart if exists
+            if (userData.bmiChart) {
+                userData.bmiChart.destroy();
+            }
+            
+            // Prepare data for chart
+            const dates = userData.bmiHistory.map(item => item.date).reverse();
+            const bmiValues = userData.bmiHistory.map(item => item.bmi).reverse();
+            
+            userData.bmiChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'مؤشر كتلة الجسم',
+                        data: bmiValues,
+                        borderColor: '#4CAF50',
+                        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'مؤشر كتلة الجسم'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'التاريخ'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `مؤشر الكتلة: ${context.parsed.y}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Update tracking table
+        function updateTrackingTable() {
+            const tableBody = document.getElementById('trackingTableBody');
+            tableBody.innerHTML = '';
+            
+            userData.bmiHistory.forEach(entry => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${entry.date}</td>
+                    <td>${entry.height}</td>
+                    <td>${entry.weight}</td>
+                    <td>${entry.bmi}</td>
+                    <td>${entry.category}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Calculate sleep duration
+        function calculateSleepDuration() {
+            const bedtime = document.getElementById('bedtime').value;
+            const waketime = document.getElementById('waketime').value;
+            
+            if (!bedtime || !waketime) return;
+            
+            const [bedHours, bedMinutes] = bedtime.split(':').map(Number);
+            const [wakeHours, wakeMinutes] = waketime.split(':').map(Number);
+            
+            let bedDate = new Date();
+            bedDate.setHours(bedHours, bedMinutes, 0, 0);
+            
+            let wakeDate = new Date();
+            wakeDate.setHours(wakeHours, wakeMinutes, 0, 0);
+            
+            // If wake time is earlier than bedtime, add a day
+            if (wakeDate < bedDate) {
+                wakeDate.setDate(wakeDate.getDate() + 1);
+            }
+            
+            const diffMs = wakeDate - bedDate;
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            
+            sleepResult.textContent = `المدة: ${diffHours} ساعات و ${diffMinutes} دقائق`;
+            
+            // Save sleep duration
+            userData.sleepDuration = diffHours + (diffMinutes / 60);
+            saveUserData();
+            
+            // Show character reaction
+            if (diffHours >= 8) {
+                showMotivationalPhrase("أحسنت! نوم كافٍ مهم لنموك وصحتك");
+            } else {
+                showMotivationalPhrase("حاول النوم 8 ساعات على الأقل لتحافظ على صحتك");
+            }
+        }
+        
+        // Show achievement toast
+        function showAchievementToast(message) {
+            const toastContent = achievementToast.querySelector('.toast-content');
+            toastContent.innerHTML = `<h3>إنجاز جديد!</h3><p>${message}</p>`;
+            
+            achievementToast.classList.add('show');
+            
+            setTimeout(() => {
+                achievementToast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Set up AI bot
+        function setupBot() {
+            // Bot send button
+            botSend.addEventListener('click', sendMessage);
+            
+            // Bot input field - send on Enter key
+            botInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Bot close button
+            botClose.addEventListener('click', function() {
+                botContainer.style.display = 'none';
+            });
+        }
+        
+        // Show bot
+        function showBot() {
+            botContainer.style.display = 'block';
+            botInput.focus();
+        }
+        
+        // Send message to bot
+        function sendMessage() {
+            const message = botInput.value.trim();
+            if (message === '') return;
+            
+            // Add user message to chat
+            addMessage(message, 'user');
+            botInput.value = '';
+            
+            // Show typing indicator
+            showTyping();
+            
+            // Simulate bot thinking
+            setTimeout(() => {
+                // Remove typing indicator
+                const typing = document.querySelector('.typing-indicator');
+                if (typing) botMessages.removeChild(typing);
+                
+                // Get bot response
+                const response = getBotResponse(message);
+                
+                // Add bot responses
+                response.forEach((line, index) => {
+                    setTimeout(() => {
+                        addMessage(line, 'bot');
+                        
+                        // Scroll to bottom
+                        botMessages.scrollTop = botMessages.scrollHeight;
+                    }, index * 500);
+                });
+            }, 1500);
+        }
+        
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            messageDiv.textContent = text;
+            botMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            botMessages.scrollTop = botMessages.scrollHeight;
+        }
+        
+        // Show typing indicator
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.innerHTML = `
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            `;
+            botMessages.appendChild(typingDiv);
+            
+            // Scroll to bottom
+            botMessages.scrollTop = botMessages.scrollHeight;
+        }
+        
+        // Get bot response based on user input
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('مرحبا') || lowerMessage.includes('اهلا') || lowerMessage.includes('اهلين')) {
+                return [
+                    "مرحباً! كيف يمكنني مساعدتك اليوم؟",
+                    "أهلاً وسهلاً! ما الذي يمكنني فعله لأجلك؟"
+                ];
+            } else if (lowerMessage.includes('نصيح') || lowerMessage.includes('نصائح')) {
+                return [
+                    "إليك بعض النصائح الصحية المهمة:",
+                    "1. اشرب 8 أكواب ماء يومياً",
+                    "2. نم 8 ساعات على الأقل",
+                    "3. تناول الخضار والفواكه الطازجة",
+                    "4. مارس الرياضة بانتظام",
+                    "5. تجنب الوجبات السريعة والمشروبات الغازية"
+                ];
+            } else if (lowerMessage.includes('تمرين') || lowerMessage.includes('رياضة') || lowerMessage.includes('رياضي')) {
+                return [
+                    "إليك بعض التمارين المقترحة:",
+                    "1. المشي السريع لمدة 30 دقيقة",
+                    "2. تمارين الإطالة لتحسين المرونة",
+                    "3. تمارين القوة باستخدام وزن الجسم",
+                    "4. رياضة السباحة للمفاصل",
+                    "5. اليوجا للاسترخاء وتحسين التنفس"
+                ];
+            } else if (lowerMessage.includes('غذاء') || lowerMessage.includes('طعام') || lowerMessage.includes('اكل') || lowerMessage.includes('نظام') || lowerMessage.includes('وصفة') || lowerMessage.includes('بديل')) {
+                return [
+                    "إليك بعض الوصفات الصحية البديلة:",
+                    "1. شوربة العدس: غنية بالبروتين والألياف",
+                    "2. ساندويتش التونة مع الخضار: سريع وصحي",
+                    "3. سلطة الفول بالخضروات: اقتصادية ومغذية",
+                    "4. بطاطس مشوية مع جبنة قليلة الدسم: لذيذة ومشبعة",
+                    "يمكنك تعديل الوصفات حسب المكونات المتوفرة لديك"
+                ];
+            } else if (lowerMessage.includes('اعداد') || lowerMessage.includes('ضبط') || lowerMessage.includes('لغة') || lowerMessage.includes('صوت')) {
+                return [
+                    "يمكنك تغيير إعدادات التطبيق من علامة التبويب 'الإعدادات':",
+                    "1. تغيير اللغة: العربية/الإنجليزية",
+                    "2. تغيير المظهر: فاتح/داكن",
+                    "3. التحكم بالصوتيات: التنبيهات/موسيقى الخلفية",
+                    "إذا كنت بحاجة لمزيد من المساعدة، تواصل مع الدعم الفني"
+                ];
+            } else if (lowerMessage.includes('دعم') || lowerMessage.includes('مساعدة') || lowerMessage.includes('مشكلة') || lowerMessage.includes('اتصل')) {
+                return [
+                    "للاستفسار أو الإبلاغ عن مشكلة:",
+                    "1. اتصل بالدعم الفني: 0459 9548",
+                    "2. تواصل معنا عبر علامة التبويب 'الإعدادات'",
+                    "3. اترك ملاحظاتك في صفحة 'التوصيات'",
+                    "سنكون سعداء بمساعدتك في حل أي مشكلة تواجهك"
+                ];
+            } else {
+                return [
+                    "آسف، لم أفهم سؤالك. يمكنك طرح سؤال آخر عن:",
+                    "- نصائح صحية عامة",
+                    "- تمارين رياضية مناسبة",
+                    "- نظام غذائي صحي",
+                    "- حالات صحية خاصة (سكري، ربو، حساسية)"
+                ];
+            }
+        }
+        
+        // Sign In Form Submission
+        signinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            userData.name = document.getElementById('studentName').value;
+            userData.school = document.getElementById('school').value;
+            userData.grade = document.getElementById('grade').value;
+            userData.gender = document.querySelector('input[name="gender"]:checked').value;
+            userData.height = parseFloat(document.getElementById('height').value);
+            userData.weight = parseFloat(document.getElementById('weight').value);
+            userData.age = parseInt(document.getElementById('age').value);
+            userData.medicalCondition = document.getElementById('medicalCondition').value;
+            
+            if (document.getElementById('linkGuardian').checked) {
+                userData.guardianName = document.getElementById('guardianName').value;
+                userData.guardianPhone = document.getElementById('guardianPhone').value;
+            }
+            
+            // Set initial tracking date
+            userData.lastTrackingDate = new Date().toISOString();
+            
+            // Calculate BMI and add to history
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('ar-EG', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            
+            const bmi = calculateBMI(userData.weight, userData.height);
+            const bmiCategory = getBMICategory(bmi);
+            
+            userData.bmiHistory.push({
+                date: dateStr,
+                height: userData.height,
+                weight: userData.weight,
+                bmi: bmi,
+                category: bmiCategory
+            });
+            
+            // Check if BMI requires notification
+            if (bmi >= 30 || bmi <= 18.5) {
+                document.getElementById('bmiAlert').classList.remove('hidden');
+                
+                // If guardian phone is available, simulate sending notification
+                if (userData.guardianPhone) {
+                    // In a real app, we would send an API request to an SMS service
+                    console.log(`Sending SMS to guardian at ${userData.guardianPhone}: طفلك ${userData.name} لديه مؤشر كتلة جسم غير طبيعي: ${bmi}`);
+                    alert(`تم إرسال تنبيه إلى ولي الأمر بالرقم ${userData.guardianPhone}`);
+                }
+            }
+            
+            saveUserData();
+            showMainApp();
+            showRandomMotivationalPhrase();
+        });
+        
+        // Show main app screen
+        function showMainApp() {
+            signinScreen.classList.add('hidden');
+            mainAppScreen.classList.remove('hidden');
+            
+            // Update welcome message
+            welcomeMessage.textContent = `مرحباً ${userData.name}!`;
+            
+            // Update home stats
+            const bmi = calculateBMI(userData.weight, userData.height);
+            document.getElementById('homeBmiValue').textContent = bmi;
+            document.getElementById('homeBmiLabel').textContent = getBMICategory(bmi);
+            document.getElementById('homeWater').textContent = `${userData.waterCount}/8`;
+            document.getElementById('homeCoins').textContent = userData.coins;
+            
+            // Update BMI tab
+            if (userData.bmiHistory.length > 0) {
+                const latestBmi = userData.bmiHistory[0];
+                document.getElementById('bmiValue').textContent = latestBmi.bmi;
+                document.getElementById('bmiCategory').textContent = latestBmi.category;
+                document.getElementById('bmiDate').textContent = `تاريخ اليوم: ${latestBmi.date}`;
+                
+                if (latestBmi.bmi >= 30 || latestBmi.bmi <= 18.5) {
+                    document.getElementById('bmiAlert').classList.remove('hidden');
+                }
+            }
+            
+            // Update tracking table
+            updateTrackingTable();
+            
+            // Show character
+            character.style.display = 'block';
+        }
+        
+        // Update water count
+        function updateWaterDisplay() {
+            document.getElementById('waterCount').textContent = userData.waterCount;
+            document.getElementById('homeWater').textContent = `${userData.waterCount}/8`;
+            
+            // Update water cups display
+            waterCups.forEach((cup, index) => {
+                if (index < userData.waterCount) {
+                    cup.classList.add('filled');
+                } else {
+                    cup.classList.remove('filled');
+                }
+            });
+        }
+        
+        // Check if we need to show tracking notification
+        function checkTrackingNotification() {
+            if (!userData.lastTrackingDate) {
+                trackingNotification.classList.remove('hidden');
+                return;
+            }
+            
+            const lastDate = new Date(userData.lastTrackingDate);
+            const now = new Date();
+            const diffHours = Math.abs(now - lastDate) / 36e5;
+            
+            if (diffHours >= 24) {
+                trackingNotification.classList.remove('hidden');
+            }
+        }
+        
+        // Show motivational phrase
+        function showMotivationalPhrase(phrase) {
+            speechBubble.textContent = phrase;
+            speechBubble.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                speechBubble.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Show random motivational phrase
+        function showRandomMotivationalPhrase() {
+            const randomIndex = Math.floor(Math.random() * motivationalPhrases.length);
+            showMotivationalPhrase(motivationalPhrases[randomIndex]);
+        }
+        
+        // Helper Functions
+        function calculateBMI(weight, height) {
+            // Convert height from cm to meters
+            const heightInMeters = height / 100;
+            return (weight / (heightInMeters * heightInMeters)).toFixed(1);
+        }
+        
+        function getBMICategory(bmi) {
+            if (bmi < 18.5) {
+                return 'نحيف';
+            } else if (bmi < 25) {
+                return 'وزن طبيعي';
+            } else if (bmi < 30) {
+                return 'وزن زائد';
+            } else {
+                return 'سمنة';
+            }
+        }
+        
+        function saveUserData() {
+            localStorage.setItem('healthAppData', JSON.stringify(userData));
+        }
+        
+        // Load inventory page
+        function loadInventoryPage() {
+            const backgroundsGrid = document.getElementById('backgroundsGrid');
+            const emptyInventory = document.getElementById('emptyInventory');
+            
+            backgroundsGrid.innerHTML = '';
+            
+            if (userData.purchasedBackgrounds.length === 0) {
+                emptyInventory.classList.remove('hidden');
+                return;
+            }
+            
+            emptyInventory.classList.add('hidden');
+            
+            userData.purchasedBackgrounds.forEach(bg => {
+                const isEquipped = userData.currentBackground === bg.id;
+                
+                const item = document.createElement('div');
+                item.className = 'background-item';
+                item.innerHTML = `
+                    <img src="${bg.image}" alt="${bg.name}">
+                    <div class="rarity-badge ${bg.rarity}">
+                        ${bg.rarity === 'common' ? 'شائع' : 
+                          bg.rarity === 'rare' ? 'نادر' : 
+                          bg.rarity === 'epic' ? 'نادر جداً' : 
+                          bg.rarity === 'legendary' ? 'أسطوري' : 'خرافي'}
+                    </div>
+                    <div class="background-name">${bg.name}</div>
+                    <div class="background-actions">
+                        ${isEquipped ? 
+                          '<div class="equipped-badge">مفعّلة</div>' : 
+                          `<button class="equip-btn" data-id="${bg.id}">تفعيل</button>`}
+                    </div>
+                `;
+                backgroundsGrid.appendChild(item);
+            });
+            
+            // Add event listeners to equip buttons
+            document.querySelectorAll('.equip-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const bgId = this.getAttribute('data-id');
+                    equipBackground(bgId);
+                });
+            });
+        }
+        
+        // Equip a background
+        function equipBackground(bgId) {
+            userData.currentBackground = bgId;
+            saveUserData();
+            showMotivationalPhrase("تم تفعيل الخلفية بنجاح!");
+            loadInventoryPage();
+        }
+        
+        // Filter backgrounds by rarity
+        function filterBackgrounds(filter) {
+            const backgroundsGrid = document.getElementById('backgroundsGrid');
+            backgroundsGrid.innerHTML = '';
+            
+            const backgroundsToShow = filter === 'all' ? 
+                userData.purchasedBackgrounds : 
+                userData.purchasedBackgrounds.filter(bg => bg.rarity === filter);
+            
+            if (backgroundsToShow.length === 0) {
+                document.getElementById('emptyInventory').classList.remove('hidden');
+                return;
+            }
+            
+            document.getElementById('emptyInventory').classList.add('hidden');
+            
+            backgroundsToShow.forEach(bg => {
+                const isEquipped = userData.currentBackground === bg.id;
+                
+                const item = document.createElement('div');
+                item.className = 'background-item';
+                item.innerHTML = `
+                    <img src="${bg.image}" alt="${bg.name}">
+                    <div class="rarity-badge ${bg.rarity}">
+                        ${bg.rarity === 'common' ? 'شائع' : 
+                          bg.rarity === 'rare' ? 'نادر' : 
+                          bg.rarity === 'epic' ? 'نادر جداً' : 
+                          bg.rarity === 'legendary' ? 'أسطوري' : 'خرافي'}
+                    </div>
+                    <div class="background-name">${bg.name}</div>
+                    <div class="background-actions">
+                        ${isEquipped ? 
+                          '<div class="equipped-badge">مفعّلة</div>' : 
+                          `<button class="equip-btn" data-id="${bg.id}">تفعيل</button>`}
+                    </div>
+                `;
+                backgroundsGrid.appendChild(item);
+            });
+            
+            // Add event listeners to equip buttons
+            document.querySelectorAll('.equip-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const bgId = this.getAttribute('data-id');
+                    equipBackground(bgId);
+                });
+            });
+        }
+        
+        // Switch to a specific tab
+        function switchToTab(tabId) {
+            // Hide all tab contents
+            Object.values(tabContents).forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            navTabs.forEach(t => t.classList.remove('active'));
+            
+            // Show selected tab content
+            if (tabContents[tabId]) {
+                tabContents[tabId].classList.remove('hidden');
+                
+                // Find and activate the tab button
+                const tabButton = Array.from(navTabs).find(t => t.getAttribute('data-tab') === tabId);
+                if (tabButton) {
+                    tabButton.classList.add('active');
+                }
+                
+                // Load content if needed
+                if (tabId === 'rewardsTab') {
+                    createFortuneWheel();
+                } else if (tabId === 'inventoryTab') {
+                    loadInventoryPage();
+                }
+            }
+        }
+        
+        // Initialize the app
+        initApp();
+    </script>
+</body>
+</html>
